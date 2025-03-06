@@ -1,0 +1,99 @@
+using System;
+using System.Data;
+using System.Diagnostics;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+class Program
+{
+    private static readonly string ApiUrl = "http://api.exchangeratesapi.io/v1/latest?access_key=1d8a4f0b9df29aeb58a176c1c99fd7fc";
+
+    static async Task Main()
+    {
+        Console.WriteLine("Auf welche Funktion möchten sie zugreifen?");
+        Console.WriteLine("------------------------------------------"); // später vod sepr
+        Console.WriteLine("pf = Portfolio");
+        Console.WriteLine("cc= Währungsrechner");
+
+        
+
+        string jsonData = await GetApiData(ApiUrl);
+
+        if (jsonData != null)
+        {
+            JObject jsonObject = JObject.Parse(jsonData);
+
+            JObject rates = (JObject)jsonObject["rates"];
+
+
+            Console.WriteLine("");
+
+
+            Console.WriteLine("Geben Sie die Basiswährung ein.");
+            Console.Write("=>");
+            string baseCurrency = Console.ReadLine().ToUpper(); 
+
+            Console.WriteLine("Geben Sie die Zielwährung ein.");
+            Console.Write("=>");
+            string targetCurrency = Console.ReadLine().ToUpper(); 
+
+            double exchangeRate = GetExchangeRate(rates, baseCurrency, targetCurrency);
+
+            if (exchangeRate != -1)
+            {
+                Console.WriteLine($"Der Wechselkurs von {baseCurrency} zu {targetCurrency} beträgt: {exchangeRate}");
+            }
+            else
+            {
+                Console.WriteLine($"Der Wechselkurs für das angegebene Währungspaar wurde nicht gefunden.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Fehler beim Abrufen von Daten von der API.");
+        }
+    }
+
+    static async Task<string> GetApiData(string apiUrl)
+    {
+        using (HttpClient client = new HttpClient())
+        {
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                if (response.IsSuccessStatusCode)
+                {
+
+                    return await response.Content.ReadAsStringAsync();
+                }
+                else
+                {
+                    Console.WriteLine($"API-Anfrage fehlgeschlagen mit Statuscode: {response.StatusCode}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fehler beim Durchführen der API-Anfrage: {ex.Message}");
+            }
+
+            return null;
+        }
+    }
+
+    static double GetExchangeRate(JObject rates, string baseCurrency, string targetCurrency)
+    {
+        string currencyPair = $"{baseCurrency}/{targetCurrency}";
+
+        if (rates.TryGetValue(targetCurrency, out JToken exchangeRateToken))
+        {
+            return exchangeRateToken.Value<double>();
+        }
+
+        return -1; // Wechselkurs nicht gefunden
+    }
+}
+

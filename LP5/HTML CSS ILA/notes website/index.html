@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>notes</title>
+    <style>
+        body {
+            background-color: rgb(46, 48, 48);
+            color: #f4f4dd;
+            font-family: 'Verdana', sans-serif;
+            font-size: 25px;
+            padding: 15px;
+            padding-left: 200px;
+            padding-right: 200px;
+        }
+
+        .editable {
+        background: rgb(46, 48, 48);
+        color: #f4f4dd;
+        padding: 3px;
+        min-height: 300px;
+        border-radius: 5px;
+        font-size: 30px; 
+        font-family: 'Verdana', sans-serif; 
+        }
+        
+        h1 {
+        color: #f4f4dd;
+        text-align: center;
+        height: 100px;
+        margin: 0; 
+        }
+
+</style>
+</head>
+<body>
+
+<h1>Title</h1>
+
+<div class="editable" contenteditable="true" id="editableContent">
+     
+</div>
+
+<script>
+    document.getElementById('editableContent').addEventListener('input', function() {
+        var text = this.textContent.trim(); 
+        console.log(text); 
+    });
+</script>
+
+</body>
+</html>
