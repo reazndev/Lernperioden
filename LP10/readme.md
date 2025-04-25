@@ -68,17 +68,32 @@ Eventually I'll move the backend (Discord bot & API fetching) into its own repos
 ## April 25
 
 Save users LastFM data in DB (instead of fetching everytime when the users profile is opened = causes Spotify API ratelimits)
-- [ ] write documentation about current progress, explain frontend, backend, DB etc
-- [ ] create DB tables for the LastFM Data 
-- [ ] implement the fetching part on the backend
+- [X] write documentation about current progress, explain frontend, backend, DB etc
+- [X] create DB tables for the LastFM Data 
+- [X] look at how to use APIs in Rust (reqwest, tokio etc) - Don't think I can fully implement it in 45min.
 
+✍️Today I wrote the documentation about where I currently am regarding my project as well as a detailed explanation of the project itself and how I'm implementing it. I also created the tables that I'll need to store the API data later on. I added the current playing song to the profile_lastfm as well as a top artist, top track and top album table. For each of those tables I have a column for each section of the API response that LastFM provides along with a column for the time range. I also looked inot how to implement an API in Rust, which I didn't really know how to do before, I just knew I had to use tokio, serde and reqwest. I also added the Supabase connection so when the Rust project is run the current playing song is saved in the profile_lastfm table. 
 
-_updates everytime when a new song is played, => update recent plays & use hashmap for top tracks/albums/artist, check if current playing song/album/artist is in hashmap => update hashmap's play count after the half way point of the song (same logic as Spotify = 50% needs to be played to count as a play). As a backup I'll fetch the stats of the user (top artist/album/track etc) once each day / each hour depending on how much performance it takes._ <br><br>
-
-**In DB add table for:** <br>
-1. Recent plays _(55 items, while only 50 are showing in the profile I think it's smart to have an small excess just in case, depending on how the loading times are I can increase this to 100 tracks)_
-2. Top tracks _(column for timeframe)_
-3. Top album _(column for timeframe)_
-4. Top artist _(column for timeframe)_
+The code for the Rust backend is [here](https://github.com/Dajialol/lastfm). <br><br>
 
 <br>
+
+## May 2
+- [ ] Save 'Top ...' in DB (every hour)
+- [ ] Save 55 most recent songs in extra table (not created yet)
+- [ ] Update 'Top ... ' if current playing song is somewhere in there (could use hashmap => figure out if that's possible to do while the data is in the DB => how)
+
+Device less
+- [ ] Look at DB structure, what is unclear, is it worth cleaning up? 
+
+<br> <br> 
+
+notes, ignore <br>
+> _updates everytime when a new song is played, => update recent plays & use hashmap for top tracks/albums/artist, check if current playing song/album/artist is in hashmap => update hashmap's play count after the half way point of the song (same logic as Spotify = 50% needs to be played to > count as a play). As a backup I'll fetch the stats of the user (top artist/album/track etc) once each day / each hour depending on how much performance it takes._ <br><br>
+> 
+> **In DB add table for:** <br>
+> 1. Recent plays _(55 items, while only 50 are showing in the profile I think it's smart to have an small excess just in case, depending on how the loading times are I can increase this to 100 tracks)_
+> 2. Top tracks _(column for timeframe)_
+> 3. Top album _(column for timeframe)_
+>4. Top artist _(column for timeframe)_
+
