@@ -79,21 +79,36 @@ The code for the Rust backend is [here](https://github.com/Dajialol/lastfm). <br
 <br>
 
 ## May 2
-- [ ] Save 'Top ...' in DB (every hour)
-- [ ] Save 55 most recent songs in extra table (not created yet)
-- [ ] Update 'Top ... ' if current playing song is somewhere in there (could use hashmap => figure out if that's possible to do while the data is in the DB => how)
+- [x] Save 'Top ...' in DB (every hour)
+- [X] Save 55 most recent songs in extra table (not created yet)
+- [X] Update 'Top ... ' if current playing song is somewhere in there (could use hashmap => figure out if that's possible to do while the data is in the DB => how)
 
-Device less
-- [ ] Look at DB structure, what is unclear, is it worth cleaning up? 
+Deviceless
+- [X] Look at DB structure, what is unclear, is it worth cleaning up? 
 
-<br> <br> 
+✍ Today I was able to implement the Rust backend part that fetches the most recent tracks as well as the top tracks / artists and albums from a user. I've added a snippet from the DB below. With that being said, I wasn't able to host it on my RPI yet as I've yet to install Rust on there.
 
-notes, ignore <br>
-> _updates everytime when a new song is played, => update recent plays & use hashmap for top tracks/albums/artist, check if current playing song/album/artist is in hashmap => update hashmap's play count after the half way point of the song (same logic as Spotify = 50% needs to be played to > count as a play). As a backup I'll fetch the stats of the user (top artist/album/track etc) once each day / each hour depending on how much performance it takes._ <br><br>
-> 
-> **In DB add table for:** <br>
-> 1. Recent plays _(55 items, while only 50 are showing in the profile I think it's smart to have an small excess just in case, depending on how the loading times are I can increase this to 100 tracks)_
-> 2. Top tracks _(column for timeframe)_
-> 3. Top album _(column for timeframe)_
->4. Top artist _(column for timeframe)_
+I've also taken a look at the DB structure and while it's a bit confusing and not perfectly organised it works and I don't think it's worth the time to change something that works, especially since no one besides me has to understand the DB.
 
+
+Example: top track
+
+| timeframe | rank | track_name | artist_name | playcount | mbid | url | image_url | fetched_at |
+|-----------|------|------------|-------------|-----------|------|-----|-----------|-------------|
+| 7day      | 1    | Sky        | d4vd        | 30        |      | link | link | time in utc |
+| 1month    | 5    | DTN        | d4vd        | 85        |      | link | link | time in utc |
+
+<br>
+
+timeframe: either 7day, 1month, 12month, overall <br>
+mbid: musicbrainz ID, gets fetched automatically, however LastFM doesn't always provide one. <br>
+url: LastFM page URL <br>
+image_url: Cover image is sourced from LastFM or Spotify, depending on availability. Spotify covers are preferred for their quality, but they’re not always accessible, especially for newly released albums. I've also had this issue with other albums but haven't found the reason for that yet. LastFM works as a fallback fairly well however there are still sometimes albums/ artist pictures that use a placeholder. <br>
+fetched_at: time it was fetched at. Don't really have a practical reason for it but it's nice for debugging. <br>
+
+## May 9
+Host website
+ - [ ] server, pm2 & cloudflared tunnel config
+- [ ] host backend (install Rust)
+- [ ] test website & create issues for bugs
+- [ ] clear backlog of [issues](https://github.com/Dajialol/src-dajia.lol/issues)
