@@ -114,8 +114,6 @@ Host website
 
 ✍ Today I was able to set up the website on my Raspberry Pi and it's now online under [dajia.lol](http://dajia.lol). I first had a lot of struggles with the NGINX reverse proxy config, that's why I tried Caddy which worked perfectly from the start. I was also able to work on these GH issues: #36 & #37
 
-*The website is currently down as I've accidentally downloaded some newer versions of some dependencies and need my pc to fix that*
-
 ## May 16
 work on GH issues
 - [ ] #38
