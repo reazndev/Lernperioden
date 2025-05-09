@@ -108,7 +108,16 @@ fetched_at: time it was fetched at. Don't really have a practical reason for it 
 
 ## May 9
 Host website
- - [ ] server, pm2 & cloudflared tunnel config
-- [ ] host backend (install Rust)
-- [ ] test website & create issues for bugs
-- [ ] clear backlog of [issues](https://github.com/Dajialol/src-dajia.lol/issues)
+- [X] server, pm2 & cloudflared tunnel config
+- [X] host backend (install Rust)
+- [X] test website & create issues for bugs
+
+✍ Today I was able to set up the website on my Raspberry Pi and it's now online under [dajia.lol](http://dajia.lol). I first had a lot of struggles with the NGINX reverse proxy config, that's why I tried Caddy which worked perfectly from the start. I was also able to work on these GH issues: #36 & #37
+
+## May 16
+work on GH issues
+- [ ] #38
+- [ ] #40
+- [ ] #41
+- [ ] #43
+...
