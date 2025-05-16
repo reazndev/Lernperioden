@@ -112,12 +112,19 @@ Host website
 - [X] host backend (install Rust)
 - [X] test website & create issues for bugs
 
-✍ Today I was able to set up the website on my Raspberry Pi and it's now online under [dajia.lol](http://dajia.lol). I first had a lot of struggles with the NGINX reverse proxy config, that's why I tried Caddy which worked perfectly from the start. I was also able to work on these GH issues: #36 & #37
+✍️Today I was able to set up the website on my Raspberry Pi and it's now online under [dajia.lol](http://dajia.lol). I first had a lot of struggles with the NGINX reverse proxy config, that's why I tried Caddy which worked perfectly from the start. I was also able to work on these GH issues: #36 & #37
 
 ## May 16
 work on GH issues
-- [ ] #38
-- [ ] #40
-- [ ] #41
-- [ ] #43
-...
+- [x] #34
+- [x] #52
+- [x] #47
+- [x] #43
+
+✍️Today I worked on some GH issues, over the past week I was able to clear my backlog from about 20 open issues to only 7 of which most are features and not bugs. I specifically finished these issues: #44 #52 #47 #43 . For the remainder of the day I tackled #46 - templates . Which in my opinion is a make or break feature since with templates you don't have to set up everything yourself which could take a long time especially since my settings UI/UX isnt that intuitive. This is also good since I can just link to the background image and other settings and don't have to upload another image for every user. I'm not done with this feature yet and will hopefully finish implementing it next week. 
+
+## May 23
+- [ ] templates category is showing up in settings
+- [ ] add options for templates (backend & frontend)
+- [ ] templates work in user profile and are dispalys correctly
+- [ ] add public documentation for templates / guide user in settings as well
