@@ -121,10 +121,21 @@ work on GH issues
 - [x] #47
 - [x] #43
 
-✍️Today I worked on some GH issues, over the past week I was able to clear my backlog from about 20 open issues to only 7 of which most are features and not bugs. I specifically finished these issues: #44 #52 #47 #43 . For the remainder of the day I tackled #46 - templates . Which in my opinion is a make or break feature since with templates you don't have to set up everything yourself which could take a long time especially since my settings UI/UX isnt that intuitive. This is also good since I can just link to the background image and other settings and don't have to upload another image for every user. I'm not done with this feature yet and will hopefully finish implementing it next week. 
+ I worked on some GH issues, over the past week I was able to clear my backlog from about 20 open issues to only 7 of which most are features and not bugs. I specifically finished these issues: #44 #52 #47 #43 . For the remainder of the day I tackled #46 - templates . Which in my opinion is a make or break feature since with templates you don't have to set up everything yourself which could take a long time especially since my settings UI/UX isnt that intuitive. This is also good since I can just link to the background image and other settings and don't have to upload another image for every user. I'm not done with this feature yet and will hopefully finish implementing it next week. 
 
 ## May 23
-- [ ] templates category is showing up in settings
-- [ ] add options for templates (backend & frontend)
-- [ ] templates work in user profile and are dispalys correctly
+- [X] templates category is showing up in settings
+- [X] add options for templates (backend & frontend)
+- [X] templates work in user profile and are dispalys correctly
 - [ ] add public documentation for templates / guide user in settings as well
+
+✍️Today I worked on the templates feature and was able to inplement it. I had some troubles as my database table structure is a bit messy and I have different things I need to save for the template in different tables. However I'm not gonna change my db structure as it works and that's just unecessary work. The templates function now however I was only able to polish the frontend for general templates page yet but wasn't able to create a nice frontend for the template creation yet.
+Currently I have one question and worry, in the templates settings page you can see a preview for every template with the actual user info displayed. So there can be a lot of backgrounds/avatars loaded from the DB in a short period of time and I'm unsure if a bigger userbase than just a few friends and me would destroy my EGRESS limits. I might have to localise my DB which would be very annoying and I'd lose access to CDN as well and I'd have to worry about SQL injection and other decurity concerns as wel as supabase currebtly handles those.
+
+## May 30
+- [ ] polish create template UI
+- [ ] add public documentation for templates - guide user in settings
+- [ ] test out EGRESS usage and find a solution if it's too much.
+- [ ] implement solution EGRESS 
+
+possible egress solution? comprimise images for preview? not sure if that eould work since we essentially use the public.profile and just use different values, I really don't want to change and risk anything with the public.profile
