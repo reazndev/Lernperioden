@@ -133,9 +133,20 @@ work on GH issues
 Currently I have one question and worry, in the templates settings page you can see a preview for every template with the actual user info displayed. So there can be a lot of backgrounds/avatars loaded from the DB in a short period of time and I'm unsure if a bigger userbase than just a few friends and me would destroy my EGRESS limits. I might have to localise my DB which would be very annoying and I'd lose access to CDN as well and I'd have to worry about SQL injection and other decurity concerns as wel as supabase currebtly handles those.
 
 ## May 30
-- [ ] polish create template UI
+- [X] polish create template UI
 - [ ] add public documentation for templates - guide user in settings
-- [ ] test out EGRESS usage and find a solution if it's too much.
+- [X] test out EGRESS usage and find a solution if it's too much.
 - [ ] implement solution EGRESS 
 
 possible egress solution? comprimise images for preview? not sure if that eould work since we essentially use the public.profile and just use different values, I really don't want to change and risk anything with the public.profile
+
+✍️This week I finished the template UI, there are still things I want to add to make the UX better such as being able to favorite templates, being able to search for tags/names, a section where you can quickly find the templates you created and the one's you've favorited etc. However I was able to finish the base version and I'm testing it now. I was also able to make the entire website responsive for mobile, including the settings page. I looked at the Egress and it didn't look too bad, however if dajia attracts more users I'm gonna have to host supabase locally. (supabase is opensource so you can start using it online for free and when I go over the usage limits I can simply host it locally)
+Yesterday I was also able to 'launch' Dajia and move on from the testing phase since I feel like it's polished enough and I couldn't find any major site breaking bugs, there are still a few which I'll be fixing within the next week.
+
+## June 6
+- [ ] #57 - Particles stack on site when site minimised and open in the background -> limit amount of particles on the screen at once & start deleting old ones
+- [ ] #56 - Can't change typewriter speed
+- [ ] #55 - Custom cursor not working - find out why
+- [ ] #55 - Custom cursor not working - implement fix
+
+
