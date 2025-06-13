@@ -147,8 +147,14 @@ Another solution to the egress problem is setting up an actual homelab with my o
 However I can't implement that till Tuesday next week so I'll just have to pray that my egress usage isn't exploding till then.
 
 ## June 13
-- [ ] #57 - Particles stack on site when site minimised and open in the background -> limit amount of particles on the screen at once & start deleting old ones
+- [X] #57 - Particles stack on site when site minimised and open in the background -> limit amount of particles on the screen at once & start deleting old ones
 - [ ] #55 - Custom cursor not working - find out why
 - [ ] #55 - Custom cursor not working - implement fix
 
+✍️Today I was only able to successfully fix the partiles stackin too much by limiting the amount of particles that can be on the site at once to 35. When the cap is reached and a new particles is generated the oldest one gets deleted. I tried out a bunch of different cap values and I'm pretty happy with the limit of 35 performance but also aesthetic wise. I sadly wasn't able to figure out the issue with the custom cursors.
 
+# June 20
+- [ ] #55 - Custom cursor not working - find out why
+- [ ] #55 - Custom cursor not working - implement fix
+- [ ] #64 - Add favorites to templates
+- [ ] #64 - Add tab for favorited templates
