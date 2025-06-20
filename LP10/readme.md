@@ -154,7 +154,9 @@ However I can't implement that till Tuesday next week so I'll just have to pray 
 ✍️Today I was only able to successfully fix the partiles stackin too much by limiting the amount of particles that can be on the site at once to 35. When the cap is reached and a new particles is generated the oldest one gets deleted. I tried out a bunch of different cap values and I'm pretty happy with the limit of 35 performance but also aesthetic wise. I sadly wasn't able to figure out the issue with the custom cursors.
 
 # June 20
-- [ ] #55 - Custom cursor not working - find out why
-- [ ] #55 - Custom cursor not working - implement fix
-- [ ] #64 - Add favorites to templates
-- [ ] #64 - Add tab for favorited templates
+- [X] clean up code
+- [X] take it easy (already done plenty and I'm out of things to do)
+
+✍️Today I've decided to take it easy and just clean up the code, read through the code again and undestand it since I've been working on this project for more than 3 months now. I also thought about ways of presenting Dajia next week which isn't as easy as I initially thought since the main point of Dajia is the LastFM integration and I doubt that more than 5 people know about LastFM in my class. Also another huge point is customisation and that's obviously rather hard to show since I can't let everyone create a new profile. I thought that I could make a small list with a few different profiles and then one could see the possibilities via that and also create a showcase profile where my classmates can change things without harming my personal account. Also that'd be a cool relique.
+
+In the end I'm very happy with Dajia and how it turned out, however I've also invested way more time than the time we've been given in the Lernatelier. I'm tracking my time via Wakatime and I've come to the conclusion that I've probably spent 120-150 hours in total and that doesn't even include server work which I've also wasted a lot of time on. Also I of course utilised AI to a certain degree since there's no way I can figure out a lot of the stuff in the time that I've been given (for example for my hosting setup I've used a lot of AI because fuck NGINX and other things like CORS and Regex that I just couldn't be bothered to invest time into)
