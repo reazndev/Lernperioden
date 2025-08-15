@@ -18,6 +18,15 @@ I've also never really contributed to an OSS project before which is something I
 
 TLDR; Rust based Ollama AI integration for [Sherlock](https://github.com/Skxxtz/sherlock) app launcher (kind of an extension for it) so I can ask AI with a single button press, without having to open a browser and of course all locally so OpenAI/Claude/Google won't use them against me in court one day :)
 
+## 22.08
+
+- [ ] Find out how to use modifier + enter without it closing Sherlock
+- [ ] initia setup, create fallback.json config -> test output for ai to test
+- [ ] call ollama from project
+- [ ] feat: option to add default LLM
+
+
+
 ### Challenges I might (and will) face
 - Enter executes an app (closes the launcher) but I need the enter input to send out the prompt to Ollama
 - Error: Time out exceeded -> if nothing happens (AI requests takes a bit based on the PC) Sherlock will time it out and automatically cancell the request
