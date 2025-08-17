@@ -21,10 +21,75 @@ TLDR; Rust based Ollama AI integration for [Sherlock](https://github.com/Skxxtz/
 ## 22.08
 
 - [ ] Find out how to use modifier + enter without it closing Sherlock
-- [ ] initia setup, create fallback.json config -> test output for ai to test
-- [ ] call ollama from project
+- [ ] initial setup, create fallback.json config -> test output for ai to test
+- [X] call ollama from project
 - [ ] feat: option to add default LLM
 
+Today I've had a lot of issues with how Sherlock handles specific binds. Since Sherlock doesn't have a documentation for developing plugins yet I have to try to reverse engineer everything which is quite annoying. However I was able to send requests to Ollama from a Rust project. While this is just a simple API request it's the first time I've worked with Ollama's API.
+
+My issues is that the launcher type "bulk_text" which I need so I can format the AI output nicely with markdown doesn't seem to work well with any binds at all so I currently have the issue that I can't send the request to Ollama via the API on modifier + Return for example. I'm not quite sure how I can fix or circumnavigate this but I'll ask the creator of Sherlock if bulk_text + binds that execute commands / functions that aren't defined in the src of Sherlock itself is even possible. 
+
+```Rust
+use reqwest::Client;
+use serde::Deserialize;
+use futures_util::StreamExt;
+
+#[derive(Deserialize, Debug)]
+struct OllamaStreamResponse {
+    response: Option<String>,
+    done: Option<bool>,
+}
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let model = "gemma3:4b";
+    let prompt = "How many r's are in strawberry";
+
+    let client = Client::new();
+    let url = "http://localhost:11434/api/generate";
+
+    let resp = client
+        .post(url)
+        .json(&serde_json::json!({
+            "model": model,
+            "prompt": prompt
+        }))
+        .send()
+        .await?;
+
+    if !resp.status().is_success() {
+        eprintln!("API error: {}", resp.text().await?);
+        return Ok(());
+    }
+
+    let mut stream = resp.bytes_stream();
+
+    let mut buffer = Vec::new();
+
+    while let Some(item) = stream.next().await {
+        let chunk = item?;
+        buffer.extend_from_slice(&chunk);
+
+        while let Some(pos) = buffer.iter().position(|&b| b == b'\n') {
+            let line = buffer.drain(..=pos).collect::<Vec<_>>();
+            let line_str = String::from_utf8_lossy(&line);
+
+            if let Ok(parsed) = serde_json::from_str::<OllamaStreamResponse>(&line_str) {
+                if let Some(resp_text) = parsed.response {
+                    print!("{}", resp_text);
+                }
+                if parsed.done == Some(true) {
+                    println!("\n--- done ---");
+                    return Ok(());
+                }
+            }
+        }
+    }
+
+    Ok(())
+}
+
+```
 
 
 ### Challenges I might (and will) face
