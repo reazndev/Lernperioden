@@ -91,6 +91,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ```
 
+## 22.08
+
+- [ ] I want the user to send a simple API request when using the plugin
+- [ ] I want the user to send an API request to their local Ollama instance when using the plugin
+- [ ] I want the user to be able to add a standard model when using the plugin
+
 
 ### Challenges I might (and will) face
 - Enter executes an app (closes the launcher) but I need the enter input to send out the prompt to Ollama
