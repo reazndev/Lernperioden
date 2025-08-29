@@ -91,10 +91,21 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ```
 
-## 22.08
+## 29.08
 
-- [ ] I want the user to send a simple API request when using the plugin
+- [X] I want the user to send a simple API request when using the plugin
 - [ ] I want the user to send an API request to their local Ollama instance when using the plugin
+- [ ] I want the user to be able to add a standard model when using the plugin
+
+Today I was able to find a workaround for the enter/return problem. I initially tried to copy the logic from the media_player module within sherlock however I realised that, this logic doesn't work for plugins as they're used differently compared to native modules which are just called by the function names instead of just calling the binary (plugins work that way). However this took some time and now we run into another issue - timeout exceeded. This probably is an easy fix with just sending '.' '..' '...' while the Ollama is doing its magic but I haven't had the time yet to try out this approach. The code is now uploaded here: https://github.com/reazndev/sherlock-ollama
+
+*technically we're already sending an API request to Ollama which also starts but it stops after 3 seconds when Sherlock reaches the timeout* 
+
+## 05.08
+I have a job interview at 15:00 so I'll just hope I get the job and I'll work on my project in the upcoming week :+1:
+
+## 12.08
+- [ ] I want the user to send an API request to Ollama and not get a timeout request -> send new loading text each second till Ollama returns result
 - [ ] I want the user to be able to add a standard model when using the plugin
 
 
