@@ -97,7 +97,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 - [ ] I want the user to send an API request to their local Ollama instance when using the plugin
 - [ ] I want the user to be able to add a standard model when using the plugin
 
-Today I was able to find a workaround for the enter/return problem. I initially tried to copy the logic from the media_player module within sherlock however I realised that, this logic doesn't work for plugins as they're used differently compared to native modules which are just called by the function names instead of just calling the binary (plugins work that way). However this took some time and now we run into another issue - timeout exceeded. This probably is an easy fix with just sending '.' '..' '...' while the Ollama is doing its magic but I haven't had the time yet to try out this approach. The code is now uploaded here: https://github.com/reazndev/sherlock-ollama
+✍️ Today I was able to find a workaround for the enter/return problem. I initially tried to copy the logic from the media_player module within sherlock however I realised that, this logic doesn't work for plugins as they're used differently compared to native modules which are just called by the function names instead of just calling the binary (plugins work that way). However this took some time and now we run into another issue - timeout exceeded. This probably is an easy fix with just sending '.' '..' '...' while the Ollama is doing its magic but I haven't had the time yet to try out this approach. The code is now uploaded here: https://github.com/reazndev/sherlock-ollama
 
 *technically we're already sending an API request to Ollama which also starts but it stops after 3 seconds when Sherlock reaches the timeout* 
 
@@ -105,14 +105,25 @@ Today I was able to find a workaround for the enter/return problem. I initially 
 I have a job interview at 15:00 so I'll just hope I get the job and I'll work on my project in the upcoming week :+1:
 
 ## 12.08
-- [ ] I want the user to send an API request to Ollama and not get a timeout request -> send new loading text each second till Ollama returns result
-- [ ] I want the user to be able to add a standard model when using the plugin
+
+> After contemplating, checking the source code and talking with the developer of Sherlock I've realised that it's almost impossible to implement Ollama into it for one main reason.
+> 
+> After 3 seconds Sherlock hits you with a timeout which will stop the entire window. I've tried to find a work around with sending a loading animation but that only works for about 10-15 seconds and and when keeping in mind that depening on the GPU and the ?> model the request times are 20 - 40 seconds it's simple not possible or viable to implement Ollama. The only solution would be to change the timeout mechanism within Sherlock itself however I'm not confident enough in my Rust abilities and general CS abilities to try and fix this and create a PR for it. 
+
+> Hence I've decided to switch my project to something I've been meaning to do for a long time but just never found the time and motivation. 
+> I want to create my own Matrix client since I'm not entirely satisfied with Element, Schildinext, Clinny or Fluffychat. I've decided that taking on a big project like that where I have to work with e2ee, caching, crates, async operations and much more would > be the best way to improve my overal coding abilities. Since the focus shouldn't be on frontend for now but rather on the Rust backend code I've decided to make a TUI with the help of [Ratatui](https://ratatui.rs/).
+
+✍️ Today I've assessed the current situation, moved on from my initial project and looked at TUI crates. I've eventually settled with Ratatui which is a high level version of Crossterm. I've just read the docs today and implemented a barebones TUI. My goal for this week (also outside of the ILA) is to create the TUI with mock data so I can start to implement the actual thing next week.
+
+Screenshot basic layout
+<img width="1902" height="1017" alt="image" src="https://github.com/user-attachments/assets/1b0f4a56-bed7-49a9-bb7b-bf19382d57ea" />
 
 
-### Challenges I might (and will) face
-- Enter executes an app (closes the launcher) but I need the enter input to send out the prompt to Ollama
-- Error: Time out exceeded -> if nothing happens (AI requests takes a bit based on the PC) Sherlock will time it out and automatically cancell the request
-- Formatting (Sherlock height is fixed so I'll probably have to add 'system prompts'? if not to exceed a certain length so it can be shown nicely.
-- Copy response (is theoretically possible but unsure how as of now) -> copy specific part of response instead of everything -> maybe split each paragraph
-- Speed of Ollama
-- Other Ollama related issues like need to execute `Ollama serve` at system start to even start Ollama, not sure if this can be automated by Rust or if this is even wished for since it'd change daemon settings -> needs sudo -> people might be unhappy with that
+## 19.08
+
+- [ ] I want the user to see a Spaces & Rooms panel
+- [ ] I want the user to see a messages panel
+- [ ] I want the user to be able to navigate between the different panels.
+
+
+
