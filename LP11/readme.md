@@ -101,10 +101,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 *technically we're already sending an API request to Ollama which also starts but it stops after 3 seconds when Sherlock reaches the timeout* 
 
-## 05.08
+## 05.09
 I have a job interview at 15:00 so I'll just hope I get the job and I'll work on my project in the upcoming week :+1:
 
-## 12.08
+## 12.09
 
 > After contemplating, checking the source code and talking with the developer of Sherlock I've realised that it's almost impossible to implement Ollama into it for one main reason.
 > 
@@ -118,12 +118,17 @@ I have a job interview at 15:00 so I'll just hope I get the job and I'll work on
 Screenshot basic layout
 <img width="1902" height="1017" alt="image" src="https://github.com/user-attachments/assets/1b0f4a56-bed7-49a9-bb7b-bf19382d57ea" />
 
+## 19.09
 
-## 19.08
+- [X] I want the user to see a Spaces & Rooms panel
+- [X] I want the user to see a messages panel
+- [X] I want the user to be able to navigate between the different panels.
 
-- [ ] I want the user to see a Spaces & Rooms panel
-- [ ] I want the user to see a messages panel
-- [ ] I want the user to be able to navigate between the different panels.
+✍️ Today I was able to use the example code strucute and logic for user inputs from the Ratatui documentation and implemented input in the same way. You can now naviate between the rooms with arrow keys and enter messages.
+I think I have the basic functions now that the TUI needs so I think I can advance to implementing the actual protocol which will take some time. Next week I want to focus on understanding Matrix itself better and how everything works so I run into less problems in the future. 
+
+[repo](https://github.com/reazndeb/zhongxin)
 
 
-
+## 26.09
+Understand the Matrix Protocol & think about implemenation structure
