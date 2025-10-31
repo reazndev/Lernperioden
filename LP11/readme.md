@@ -127,11 +127,17 @@ Screenshot basic layout
 ✍️ Today I was able to use the example code strucute and logic for user inputs from the Ratatui documentation and implemented input in the same way. You can now naviate between the rooms with arrow keys and enter messages.
 I think I have the basic functions now that the TUI needs so I think I can advance to implementing the actual protocol which will take some time. Next week I want to focus on understanding Matrix itself better and how everything works so I run into less problems in the future. 
 
+## 31.10
+As I stopped working on the past project due to me getting an internship and having no time to learn Rust anymore I focused on the project which we'll continue in LP12. The IDPA project of the Kanti - a complete banking website & app made with Java, Typescript and Angular.
+
+- Worked on mockups and requirements
+<img width="1024" height="573" alt="image" src="https://github.com/user-attachments/assets/e83fda7b-df74-4dc5-91bb-1b2b7e7a7f74" />
+<img width="1024" height="576" alt="image" src="https://github.com/user-attachments/assets/12e9ac0f-7563-4c44-93ad-7b908421ea6f" />
+
+
 # Reflexion
 This LP was honestly quite a big letdown, I got to finish none of the projects I set out to finish due to technical limiations and time. 
 My first project was an extension for the app launcher Sherlock where I wanted to integrate AI API requests into it however it didn't work as Sherlock as a hardcoded time out of 3 seconds. AI API requests obviously take longer thus making this project impossible, I tried to find a workaround for a couple of days but really couldn't find any viable solution. 
 
 My second project was meant to be a big project on which I could work for a longer period of time - a Rust based TUI client for the Matrix chatting protocol. However during my Oxford stay I got an internship which requires me knowing Java, Typescript and Angular thus leaving me with no time to continue learning Rust :(
 
-## 26.09
-Understand the Matrix Protocol & think about implemenation structur
