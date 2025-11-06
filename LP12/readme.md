@@ -5,7 +5,7 @@ I will be working together with my collegues on a Kanti school project (IDPA), w
 
 ## 07.11
 Epic: user can navigate the website and login to his banking account.
-- [ ] Implement /login /support (without any content/backend) according to mockups
+- [X] Implement /login /support (without any content/backend) according to mockups
 - [ ] Implement /neuanmeldung (without any content/backend) according to mockups
 - [ ] Implement navbar (without any content/backend) according to mockups
 
