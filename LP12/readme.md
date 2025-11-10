@@ -6,11 +6,13 @@ I will be working together with my collegues on a Kanti school project (IDPA), w
 ## 07.11
 Epic: User can navigate the website and login to his banking account.
 - [X] Implement /login /support (without any content/backend) according to mockups
-- [ ] Implement /neuanmeldung (without any content/backend) according to mockups
-- [ ] Implement navbar (without any content/backend) according to mockups
+- [X] Implement /neuanmeldung (without any content/backend) according to mockups
+- [X] Implement navbar (without any content/backend) according to mockups
 
 Unrelated:
-- [ ] Pick up server in Zurich
+- [X] Pick up server in Zurich
+
+✍️ Today I was able to implement the login, support, neuamledung pages and the navbar as well. I was also able to implement simple routing however there isn't any auth needed yet as this hasnt been yet implemented in the backend. I was also able to pick up the server in Zurich without any issues :)
 
 ---
 
