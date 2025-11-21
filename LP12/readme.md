@@ -14,6 +14,25 @@ Unrelated:
 
 ✍️ Today I was able to implement the login, support, neuamledung pages and the navbar as well. I was also able to implement simple routing however there isn't any auth needed yet as this hasnt been yet implemented in the backend. I was also able to pick up the server in Zurich without any issues :)
 
+## 14.11
+
+KRANK
+
+## 21.11
+
+Epic: User can all the important info at a quick glance on the dashboard page
+- [X] Implement wealth box
+- [X] Implement transactions box
+- [ ] Implement chart box
+- [ ] Connect frontend with backend
+- [ ] Create unit & integration tests
+
+✍️ Today I was able to implement the wealth box as well as the transactions box, I also created some new issues on which I'll be working on in the next few weeks (basically the epics in GH issue). I wasn't able to connect it to the backend yet as it's not fully implemented yet so I had to use backup data. I also wasn't able to implement charts yet but I'm very happy with how the dashboard page is looking and I was also able to make it pretty responsive. (I also made changed to the Navbar and Footer)
+
+<img width="1729" height="970" alt="image" src="https://github.com/user-attachments/assets/537de286-09f6-4fca-917c-ad6f00400d1f" />
+
+
+
 ---
 
 Epic: User can create a transaction.
