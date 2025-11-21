@@ -31,6 +31,7 @@ Epic: User can all the important info at a quick glance on the dashboard page
 
 <img width="1729" height="970" alt="image" src="https://github.com/user-attachments/assets/537de286-09f6-4fca-917c-ad6f00400d1f" />
 
+I also designed the email templates for the verification and the account creation. [PR here](https://github.com/reazndev/purbank-backend/pull/21)
 
 
 ---
