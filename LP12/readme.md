@@ -33,26 +33,29 @@ Epic: User can all the important info at a quick glance on the dashboard page
 
 I also designed the email templates for the verification and the account creation. [PR here](https://github.com/reazndev/purbank-backend/pull/21)
 
-
----
+## 28.11
 
 Epic: User can create a transaction.
-- [ ] Implement transaction page (Frontend)
-- [ ] Implement transaction form (recipient, amount, description etc.)
+- [X] Implement transaction page (Frontend)
+- [X] Implement transaction form (recipient, amount, description etc.)
 - [ ] Connect frontend with backend
-- [ ] Implement transaction history with filter options
+- [X] Implement transaction history
 - [ ] Create unit & integration tests
+
+Epic: User can see his current account balance.
+- [X] Implement 'Wealth' page (Frontend)
+- [ ] Connect with backend so real values are shown
+- [ ] Implement showcase of all accounts with their according balance
+- [ ] Create unit & integration tests
+
+✍️ Today I was able to implement basically everything I planned for, I created the transaction page as well as the wealth page, however as the backend isnt finished yet I wasnt able to connect it so only the frontend stands with mockdata. 
+
+---
 
 Epic: User can authenticate his login attempt with the mobile app.
 - [ ] web: QR code shown
 - [ ] Mobile app: Implement QR code scanner
 - [ ] Mobile app: Implement Validity check for QR code with backend -> approve sign in
-- [ ] Create unit & integration tests
-
-Epic: User can see his current account balance.
-- [ ] Implement 'Wealth' page (Frontend)
-- [ ] Connect with backend so real values are shown
-- [ ] Implement showcase of all accounts with their according balance
 - [ ] Create unit & integration tests
 
 Epic: User can create new accounts
