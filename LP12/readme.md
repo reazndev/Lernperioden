@@ -50,29 +50,36 @@ Epic: User can see his current account balance.
 
 ✍️ Today I was able to implement basically everything I planned for, I created the transaction page as well as the wealth page, however as the backend isnt finished yet I wasnt able to connect it so only the frontend stands with mockdata. 
 
----
-
-Epic: User can authenticate his login attempt with the mobile app.
-- [ ] web: QR code shown
-- [ ] Mobile app: Implement QR code scanner
-- [ ] Mobile app: Implement Validity check for QR code with backend -> approve sign in
-- [ ] Create unit & integration tests
-
-Epic: User can create new accounts
-- [ ] Implement account creation form (Frontend)
-- [ ] Connect frontend with backend
-- [ ] Create unit & integration tests
+## 05.12
 
 Epic: User can see stats of his wealth/transactions etc
-- [ ] Showcase stats with chart library
-  - Pie Chart (Inbound vs Outbund)
-  - Wealth history
-  - etc.
-- [ ] Create unit & integration tests
 
-Epic: User can manage account settings 
-- [ ] Implement settings page (Frontend)
-- [ ] Think about which settings (not sure yet, need to ask in group)
-- [ ] Implement those settings
-- [ ] Create unit & integration tests
+* [X] Showcase stats with chart library
+* [X] Pie Chart (Inbound vs Outbound)
+* [ ] Wealth history
 
+
+* [X] Create unit tests (Data formatting for charts)
+* [ ] Create integration tests
+
+✍️ This week I integrated the chart library to show inbound vs. outbound transactions.
+
+## 12.12
+
+Epic: User can create new accounts
+
+* [X] Implement account creation form (Frontend)
+* [X] Connect frontend with backend
+* [X] Create unit tests (Form validation)
+* [ ] Create integration tests
+
+## 19.12
+
+Epic: Finalize connectivity and Testing
+
+* [X] Connect "Wealth" and "Transaction" pages with backend
+* [X] Implement showcase of all accounts with their according balance
+* [X] Create unit tests (Balance calculation logic)
+* [ ] Create integration tests
+
+✍️ In this final session before the holidays, I finally replaced all remaining mock data with real backend calls. You can now see real account balances on the "Wealth" page and the "Transaction" history is fully dynamic. I spent the last few hours writing unit tests for the balance calculation logic to ensure the math is correct across multiple accounts. While the app is now fully functional, the integration tests remain on the "To-Do" list for January as we prioritised a working UI for the end of the year.
