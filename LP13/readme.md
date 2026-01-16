@@ -13,3 +13,25 @@ First step: Open up the mouse and see what hardware it uses.
 ---
 
 I havent done anything for this project in the first ILA session but I've continued to work on our IDPA project Purbank and continued where we left of last LP. We'll finish our project next week so I can start working on it next week. Also I would work on this outside of ILA.
+
+
+### Stuff I learned
+
+### key rollover 
+One device has multiple HID interfaces so multiple simultaneous keypresses are possible (see screenshot)
+
+<img width="1106" height="306" alt="image" src="https://github.com/user-attachments/assets/bc12d2eb-44f7-4658-8d8f-2d16911951c8" />
+
+### This is how the moues looks dissected
+
+<img width="1174" height="1516" alt="image" src="https://github.com/user-attachments/assets/0958dab8-0670-4645-833e-f3d7db44beaa" />
+
+I was able to find my mice's processors and sensors datasheet but sadly I wasnt able to find the datasheet of the display processor (both are uploaded in this repo)
+
+---
+
+WIP will change in bus
+
+I have to work with a separate arduino/micro chip now so that I can overwrite the payloads the main processor sends to the screen as its SoC (system on chip - payloads for image are not in hexdumps - HID)
+
+I will now try to contact Mr Lauk since he studied micro electronics to ask for help, I've often seen him in Bausteln so I think he'd be pleased to help
