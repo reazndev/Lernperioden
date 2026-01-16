@@ -7,13 +7,11 @@ However, this is totally doable. I already took a halfhearted look at it a few m
 
 Plus, it'd make for a killer blog post, which is ideal because I've been itching to write more and actually put stuff on my website. Last time I tried starting a blog, it died after exactly one post ([see Blog post - about 8min read about Dajia](https://reazn.tech/#dajia-popup)).
 
-First step: Open up the mouse and see what hardware it uses.
-
-
 ---
 
-I havent done anything for this project in the first ILA session but I've continued to work on our IDPA project Purbank and continued where we left of last LP. We'll finish our project next week so I can start working on it next week. Also I would work on this outside of ILA.
+### 16.01.2026
 
+Today I experimented with the HID, I intercepted the signal and looked through it, I was able to see how the communication between the mouse and the operating system works however I wasnt able to find any information about the screen in the hexdumps of the HID - this makes me believe that the screen is processed entirely on the mouse without (SoC). I also opened up the mouse and was able to find datasheets for both the processor and the sensor however I wasnt able to find one for the display processor which I believe is at the bottom right. I even tried to find one on Baidu.cn (the chinese google) but couldnt find one. Now my projects diverts a bit from regular programming as my only option is to attach an Arduino and just control the screen with that. I dont know if this is still within the bounds of ILA, to stay within bounds I think I will try to learn more about HID and how hardware interacts with operating systems (especially Linux) and write a small report of what I learned at the end which will focus on explaining said topic with the helps of visualisations.
 
 ### Stuff I learned
 
@@ -28,10 +26,7 @@ One device has multiple HID interfaces so multiple simultaneous keypresses are p
 
 I was able to find my mice's processors and sensors datasheet but sadly I wasnt able to find the datasheet of the display processor (both are uploaded in this repo)
 
----
-
-WIP will change in bus
-
-I have to work with a separate arduino/micro chip now so that I can overwrite the payloads the main processor sends to the screen as its SoC (system on chip - payloads for image are not in hexdumps - HID)
-
-I will now try to contact Mr Lauk since he studied micro electronics to ask for help, I've often seen him in Bausteln so I think he'd be pleased to help
+### 23.01.2026
+- [ ] explore HID communication
+- [ ] send custom payloads to see how it works
+- [ ] summarize my new found knowledge
