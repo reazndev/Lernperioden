@@ -32,6 +32,9 @@ I was able to find my mice's processors and sensors datasheet but sadly I wasnt 
 - [X] summarize my new found knowledge
 
 Today I spent most of my time trying to send custom HID payloads to my mouse to see if I could somehow trigger the screen controller. I used hidapitester to poke around and send different commands, but the mouse basically ignored everything that wasn't a standard HID request like DPI changes. The screen seems to be completely isolated from the HID interface, which confirms what I suspected earlier.
+
 After trying various report IDs and byte patterns with no success, I had to accept that the only real way forward would be to physically intercept the display's communication lines with a small Arduino. I'd need a 3.3V Pro Micro or something similar that could fit inside the mouse housing and tap into the I2C or SPI bus that connects the main processor to the display chip.
+
 I looked into ordering one but realized it wouldn't arrive in time for my this week. It's frustrating because the solution is technically straightforward - just intercept and inject custom data into the display bus - but I'm blocked by shipping times and the fact that I waited too long to try this approach.
+
 So instead of getting my cat gifs, I'm pivoting to documenting what I learned about HID communication and how devices isolate their internal components from external control.
